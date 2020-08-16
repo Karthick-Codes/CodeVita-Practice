@@ -1,0 +1,32 @@
+StairCase
+
+steps=int(input())
+n1,n2=0,1
+if steps==0:
+    print(0)
+elif steps==1:
+    print(1)
+else:
+    cnt=0
+    while(cnt<steps):
+        n3=n1+n2
+        n1,n2=n2,n3
+        cnt+=1
+    print(n3)  
+ 
+Input :
+	5
+Output:
+	8
+
+Program Logic:
+	find number ways to reach the Nth step.
+	N step reached from N-1 step or N-2 step.
+	Assume N=3,
+		three can be reached from 2nd step or 1 step.
+	N=5, from 4th step or 3rd Step.
+	pattern like Fibonacci series.
+Program Detailed Explanation:
+	if number of step=1 then answer is 1.
+	if greater than 1 then while loop iterate step-1 time from 0.
+		
