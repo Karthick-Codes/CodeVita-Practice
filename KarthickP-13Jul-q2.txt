@@ -1,0 +1,74 @@
+    - Karthick P
+Question 3:  Utopian Tree 
+
+import java.util.*;
+public class UtopianTree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		int []testCase=new int[t];
+		int max=0;
+		for(int i=0;i<t;i++) 
+		{
+			testCase[i]=sc.nextInt();
+			if(max<testCase[i]) {
+				max=testCase[i];
+			}
+		}
+		int[] cycle=new int[max+1];
+		cycle[0]=1;
+		cycle[1]=2;
+		for(int i=2;i<max+1;i++) 
+		{
+			if(i%2==0) {
+				cycle[i]=cycle[i-1]+1;
+			}
+			else {
+				cycle[i]=cycle[i-1]*2;
+			}
+		}
+		for(int i:testCase) {
+			System.out.println(cycle[i]);
+		}
+	}
+
+}
+  
+Sample Input:
+3
+0
+1
+4
+Sample Output:
+1
+2
+7
+ 
+
+  Program Logic:
+  
+  Find ti cycle tree height.
+  Explanation
+  1.summer -> 0 spring -> 1 summer->2 spring->3 summer->4 spring->5….
+  2.Spring increase height double the previous height.
+  3.Summer increase height by 1.
+Program Detailed Explanation:
+  
+  t testcase are given so store it in a array called testcase.
+  Initialise a variable max=0 and find maximum value in the array
+  If (max<testcase[i]) then
+  Max=testcase[I] 
+  
+Create a array length of max+1. cycle[]
+Cycle[0]=1
+Cycle[1]=2
+Iterate a for loop from 2 to max
+  If I is even then
+  Cycle[I]=cycle[I-1]+1, even is mention its a summer.
+  Else 
+  Cycle[I]=cycle[I-1]*2, odd is mention its a spring.
+  
+For each loop for testcase array,
+  Print cycle[ti].
