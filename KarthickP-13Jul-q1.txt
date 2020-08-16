@@ -1,0 +1,72 @@
+             -Karthick P
+import java.util.*;
+public class ConsPrime {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		long N;
+		Scanner sc=new Scanner(System.in);
+		N=sc.nextLong();
+  //Task -1
+		List<Integer> prime=new ArrayList<Integer>();
+		prime.add(2);
+		prime.add(3);
+
+		for(long i=5;i<=N;i++) 
+		{
+			int sq=(int)Math.sqrt(i);
+			boolean chk=true;
+			for(int j=2;j<=sq;j++) {
+				if(i%j==0) 
+				{
+					chk=false;
+					break;
+				}
+			}
+			if(chk) {
+				prime.add((int)i);
+			}
+		}
+  // Task -2		
+		int count=0;
+		int ans=prime.get(0);
+		for(int i=1;i<prime.size();i++) {
+			ans+=prime.get(i);
+			if(prime.contains(ans)) {
+				System.out.println(ans);
+				count++;
+			}
+		}
+		System.out.println(count);
+		
+	}
+
+}
+
+Input		
+  20
+Output:
+  2
+  
+  
+  Program Logic:
+  
+  Find the count of consecutive prime number upto N.
+  Explanation
+  1.we need to find list of prime numbers in the given range N.
+  2.Add prime numbers consecutively..
+  3.If sum is a prime and the prime in Given Range Prime.then increase count  by 1.
+
+Program Detailed Explanation:
+  
+  Task 1 portion code :
+  I declare a Integer ArrayList to store prime numbers.
+  Directly 2,3 were added to the list. Because 2, 3 are always a prime Number and Based on input constrain.
+  For loop 1 iterate upto N.
+  Inner for loop find ‘i’ is prime or Not.
+  
+Task 2 portion Code:
+   Sum variable used to add prime values and check with arrayList.
+  ArrayList provide “contains(obj)” method to check an element is in list or not. With the help of that method if true then count is increased by one.
+
+Finally output in count variable . print count. 
